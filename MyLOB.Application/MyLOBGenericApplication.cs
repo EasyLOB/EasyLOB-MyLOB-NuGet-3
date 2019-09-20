@@ -11,9 +11,8 @@ namespace MyLOB.Application
     {
         #region Methods
 
-        public MyLOBGenericApplication(IMyLOBUnitOfWork unitOfWork, IDIManager diManager)
-            : base(unitOfWork, diManager)
-            
+        public MyLOBGenericApplication(IMyLOBUnitOfWork unitOfWork)
+            : base(unitOfWork)            
         {
         }
 
