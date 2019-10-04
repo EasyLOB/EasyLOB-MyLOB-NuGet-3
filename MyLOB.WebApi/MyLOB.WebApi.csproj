@@ -86,14 +86,11 @@
     <Reference Include="EasyLOB.Data, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\EasyLOB.3.0.1\lib\net46\EasyLOB.Data.dll</HintPath>
     </Reference>
-    <Reference Include="EasyLOB.DIUnity, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\EasyLOB.3.0.1\lib\net46\EasyLOB.DIUnity.dll</HintPath>
+    <Reference Include="EasyLOB.DIAutofac, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EasyLOB.3.0.1\lib\net46\EasyLOB.DIAutofac.dll</HintPath>
     </Reference>
     <Reference Include="EasyLOB.Environment, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\EasyLOB.3.0.1\lib\net46\EasyLOB.Environment.dll</HintPath>
-    </Reference>
-    <Reference Include="EasyLOB.Environment.Web, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\EasyLOB.Environment.Web.3.0.1\lib\net46\EasyLOB.Environment.Web.dll</HintPath>
     </Reference>
     <Reference Include="EasyLOB.Extensions.Edm, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\EasyLOB.Extensions.Edm.3.0.1\lib\net46\EasyLOB.Extensions.Edm.dll</HintPath>
@@ -320,9 +317,6 @@
     <Reference Include="Unity.Container, Version=5.8.13.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
       <HintPath>..\packages\Unity.Container.5.8.13\lib\net46\Unity.Container.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Mvc, Version=5.0.15.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
-      <HintPath>..\packages\Unity.Mvc.5.0.15\lib\net46\Unity.Mvc.dll</HintPath>
-    </Reference>
     <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
       <HintPath>..\packages\WebActivatorEx.2.2.0\lib\net40\WebActivatorEx.dll</HintPath>
     </Reference>
@@ -340,8 +334,6 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="App_Start\UnityConfig.cs" />
-    <Compile Include="App_Start\UnityMvcActivator.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
     <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs" />
