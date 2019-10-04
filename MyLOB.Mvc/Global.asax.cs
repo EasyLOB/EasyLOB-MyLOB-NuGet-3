@@ -1,4 +1,5 @@
-﻿using EasyLOB;
+﻿using Autofac;
+using EasyLOB;
 using EasyLOB.Mvc;
 //using EasyLOB.Persistence; // EF 6.0 Log
 using Newtonsoft.Json;
@@ -24,6 +25,9 @@ namespace MyLOB.Mvc
 
             // Syncfusion
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense(""); // !!!
+
+            // Autofac
+            AppDIAutofacHelper.Setup(new ContainerBuilder());
 
             // Setup
             AppHelper.Setup();

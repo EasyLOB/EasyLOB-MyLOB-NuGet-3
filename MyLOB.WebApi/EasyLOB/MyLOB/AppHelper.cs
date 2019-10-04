@@ -40,7 +40,7 @@ namespace EasyLOB
         public static void Setup()
         {
             // DI
-            AppDIUnityHelper.SetupMyLOB(); // !!!
+            AppDIAutofacHelper.SetupMyLOB(); // !!!
 
             // AutoMapper
             SetupMappers();

@@ -1,4 +1,5 @@
-﻿using EasyLOB;
+﻿using Autofac;
+using EasyLOB;
 using Newtonsoft.Json;
 using System;
 using System.Globalization;
@@ -18,6 +19,9 @@ namespace MyLOB.WebApi
 
             // Syncfusion
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense(""); // !!!
+
+            // Autofac
+            AppDIAutofacHelper.Setup(new ContainerBuilder());
 
             // Setup
             AppHelper.Setup();
