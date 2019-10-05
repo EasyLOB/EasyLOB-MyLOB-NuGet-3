@@ -39,28 +39,28 @@ namespace EasyLOB.Mvc
         {
             bool required = IsRequired(property);
 
-            return required ? AppDefaults.CssClassEditorRequired : AppDefaults.CssClassEditor;
+            return required ? AppDefaults.CSSClassEditorRequired : AppDefaults.CSSClassEditor;
         }
 
         public virtual string EditCSSEditorDateFor(string property)
         {
             bool required = IsRequired(property);
 
-            return required ? AppDefaults.CssClassEditorDateRequired : AppDefaults.CssClassEditorDate;
+            return required ? AppDefaults.CSSClassEditorDateRequired : AppDefaults.CSSClassEditorDate;
         }
 
         public virtual string EditCSSEditorDateTimeFor(string property)
         {
             bool required = IsRequired(property);
 
-            return required ? AppDefaults.CssClassEditorDateTimeRequired : AppDefaults.CssClassEditorDateTime;
+            return required ? AppDefaults.CSSClassEditorDateTimeRequired : AppDefaults.CSSClassEditorDateTime;
         }
 
         public virtual string EditCSSLabelFor(string property)
         {
             bool required = IsRequired(property);
 
-            return required ? AppDefaults.CssClassLabelRequired : AppDefaults.CssClassLabel;
+            return required ? AppDefaults.CSSClassLabelRequired : AppDefaults.CSSClassLabel;
         }
 
         public virtual bool IsRequired(string property)

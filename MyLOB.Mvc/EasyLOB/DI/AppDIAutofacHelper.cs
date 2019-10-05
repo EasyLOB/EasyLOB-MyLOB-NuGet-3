@@ -1,5 +1,10 @@
 ﻿using Autofac;
+using Autofac.Integration.Mvc;
+using Autofac.Integration.WebApi;
 using EasyLOB.Environment;
+using MyLOB.Mvc;
+using System.Web.Http;
+using System.Web.Mvc;
 
 namespace EasyLOB
 {
@@ -39,7 +44,16 @@ namespace EasyLOB
             //ContainerBuilder.RegisterType<EnvironmentManagerDesktop>().As<IEnvironmentManager>().SingleInstance();
             ContainerBuilder.RegisterType<EnvironmentManagerWeb>().As<IEnvironmentManager>().SingleInstance();
 
+            ContainerBuilder.RegisterControllers(typeof(MvcApplication).Assembly);
+            ContainerBuilder.RegisterApiControllers(typeof(MvcApplication).Assembly);
+
             _container = _containerBuilder.Build();
+
+            // MVC
+            DependencyResolver.SetResolver(new AutofacDependencyResolver(Container));
+            // Web API
+            var config = GlobalConfiguration.Configuration;
+            config.DependencyResolver = new AutofacWebApiDependencyResolver(Container);
 
             ManagerHelper.Setup(new DIManagerAutofac(Container),
                 Container.Resolve<IEnvironmentManager>(),

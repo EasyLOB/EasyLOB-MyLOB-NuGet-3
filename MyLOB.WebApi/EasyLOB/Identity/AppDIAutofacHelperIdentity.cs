@@ -3,8 +3,6 @@ using EasyLOB.Identity;
 using EasyLOB.Identity.Application;
 using EasyLOB.Identity.Persistence;
 using EasyLOB.Security;
-using System.Security.Principal;
-using System.Threading;
 
 namespace EasyLOB
 {
