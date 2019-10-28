@@ -22,15 +22,12 @@ namespace MyLOB.WebApi
 
             // Autofac
             AppDIAutofacHelper.Setup(new ContainerBuilder());
-
-            // Setup
             AppHelper.Setup();
 
             AreaRegistration.RegisterAllAreas();
 
             // Dependency Injection
             // ASP.NET MVC
-            //     Unity.Mvc
             // ASP.NET Web API + Syncfusion Report Viewer
             GlobalConfiguration.Configure(WebApiConfig.Register);
 

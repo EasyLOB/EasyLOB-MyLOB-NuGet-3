@@ -41,6 +41,8 @@ namespace EasyLOB
             SetupIdentity();
             SetupLog();
 
+            SetupMyLOB(); // !!!
+
             //ContainerBuilder.RegisterType<EnvironmentManagerDesktop>().As<IEnvironmentManager>().SingleInstance();
             ContainerBuilder.RegisterType<EnvironmentManagerWeb>().As<IEnvironmentManager>().SingleInstance();
 
