@@ -1,3 +1,9 @@
+using EasyLOB.Activity;
+using EasyLOB.AuditTrail;
+using EasyLOB.Environment;
+using EasyLOB.Extensions.Edm;
+using EasyLOB.Identity;
+using EasyLOB.Resources;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;

@@ -38,6 +38,10 @@ namespace EasyLOB
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            // Dependency Injection
+            // Unity.Mvc
+            config.DependencyResolver = new UnityResolver(UnityConfig.Container);
         }
     }
 }

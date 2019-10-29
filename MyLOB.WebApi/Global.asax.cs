@@ -1,5 +1,4 @@
-﻿using Autofac;
-using EasyLOB;
+﻿using EasyLOB;
 using Newtonsoft.Json;
 using System;
 using System.Globalization;
@@ -20,14 +19,14 @@ namespace MyLOB.WebApi
             // Syncfusion
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense(""); // !!!
 
-            // Autofac
-            AppDIAutofacHelper.Setup(new ContainerBuilder());
+            // Setup
             AppHelper.Setup();
 
             AreaRegistration.RegisterAllAreas();
 
             // Dependency Injection
             // ASP.NET MVC
+            //     Unity.Mvc
             // ASP.NET Web API + Syncfusion Report Viewer
             GlobalConfiguration.Configure(WebApiConfig.Register);
 

@@ -29,7 +29,7 @@ namespace EasyLOB
         public static string CSSClassEditorDateTime { get { return "z-editorDateTime"; } }
 
         public static string CSSClassEditorDateTimeRequired { get { return "z-editorDateTimeRequired"; } }
-        
+
         public static string CSSClassForm { get { return "z-form"; } }
         //public static string CSSClassForm { get { return "form-inline z-form"; } }
 
