@@ -43,8 +43,8 @@ namespace EasyLOB
 
             SetupMyLOB(); // !!!
 
-            //ContainerBuilder.RegisterType<EnvironmentManagerDesktop>().As<IEnvironmentManager>().SingleInstance();
-            ContainerBuilder.RegisterType<EnvironmentManagerWeb>().As<IEnvironmentManager>().SingleInstance();
+            //ContainerBuilder.RegisterType<EnvironmentManagerDesktop>().As<IEnvironmentManager>(); // InstancePerDependency();
+            ContainerBuilder.RegisterType<EnvironmentManagerWeb>().As<IEnvironmentManager>(); // InstancePerDependency();
 
             ContainerBuilder.RegisterModule(new AutofacWebTypesModule());
 

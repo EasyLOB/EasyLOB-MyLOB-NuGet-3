@@ -8,15 +8,15 @@ namespace EasyLOB
     {
         public static void SetupExtensions()
         {
-            //ContainerBuilder.RegisterType<EdmManagerMock>().As<IEdmManager>().SingleInstance();
-            ContainerBuilder.RegisterType<EdmManagerFileSystem>().As<IEdmManager>().SingleInstance();
-            //ContainerBuilder.RegisterType<EdmManagerFTP>().As<IEdmManager>().SingleInstance();
+            //ContainerBuilder.RegisterType<EdmManagerMock>().As<IEdmManager>(); // InstancePerDependency();
+            ContainerBuilder.RegisterType<EdmManagerFileSystem>().As<IEdmManager>(); // InstancePerDependency();
+            //ContainerBuilder.RegisterType<EdmManagerFTP>().As<IEdmManager>(); // InstancePerDependency();
 
-            //ContainerBuilder.RegisterType<IniManagerMock>().As<IIniManager>().SingleInstance();
-            //ContainerBuilder.RegisterType<IniManager>().As<IIniManager>().SingleInstance();
+            //ContainerBuilder.RegisterType<IniManagerMock>().As<IIniManager>(); // InstancePerDependency();
+            //ContainerBuilder.RegisterType<IniManager>().As<IIniManager>(); // InstancePerDependency();
 
-            //ContainerBuilder.RegisterType<MailManagerMock>().As<IMailManager>().SingleInstance();
-            ContainerBuilder.RegisterType<MailManager>().As<IMailManager>().SingleInstance();
+            //ContainerBuilder.RegisterType<MailManagerMock>().As<IMailManager>(); // InstancePerDependency();
+            ContainerBuilder.RegisterType<MailManager>().As<IMailManager>(); // InstancePerDependency();
         }
     }
 }

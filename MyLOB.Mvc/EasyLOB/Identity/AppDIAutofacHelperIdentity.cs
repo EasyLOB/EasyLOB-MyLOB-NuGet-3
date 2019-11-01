@@ -10,19 +10,19 @@ namespace EasyLOB
     {
         public static void SetupIdentity()
         {
-            //ContainerBuilder.RegisterType<AuthenticationManagerMock>().As<IAuthenticationManager>().SingleInstance();
+            //ContainerBuilder.RegisterType<AuthenticationManagerMock>().As<IAuthenticationManager>(); // InstancePerDependency();
             ContainerBuilder.RegisterType<AuthenticationManager>().As<IAuthenticationManager>();
 
-            ContainerBuilder.RegisterGeneric(typeof(IdentityGenericApplication<>)).As(typeof(IIdentityGenericApplication<>)).SingleInstance();
-            ContainerBuilder.RegisterGeneric(typeof(IdentityGenericApplicationDTO<,>)).As(typeof(IIdentityGenericApplicationDTO<,>)).SingleInstance();
+            ContainerBuilder.RegisterGeneric(typeof(IdentityGenericApplication<>)).As(typeof(IIdentityGenericApplication<>)); // InstancePerDependency();
+            ContainerBuilder.RegisterGeneric(typeof(IdentityGenericApplicationDTO<,>)).As(typeof(IIdentityGenericApplicationDTO<,>)); // InstancePerDependency();
 
             // Entity Framework
-            ContainerBuilder.RegisterType<IdentityUnitOfWorkEF>().As<IIdentityUnitOfWork>().SingleInstance();
-            ContainerBuilder.RegisterGeneric(typeof(IdentityGenericRepositoryEF<>)).As(typeof(IIdentityGenericRepository<>)).SingleInstance();
+            ContainerBuilder.RegisterType<IdentityUnitOfWorkEF>().As<IIdentityUnitOfWork>(); // InstancePerDependency();
+            ContainerBuilder.RegisterGeneric(typeof(IdentityGenericRepositoryEF<>)).As(typeof(IIdentityGenericRepository<>)); // InstancePerDependency();
 
             // NHibernate
-            //ContainerBuilder.RegisterType<IdentityUnitOfWorkEF>().As<IIdentityUnitOfWork>().SingleInstance();
-            //ContainerBuilder.RegisterGeneric(typeof(IdentityGenericRepositoryEF<>)).As(typeof(IIdentityGenericRepository<>)).SingleInstance();
+            //ContainerBuilder.RegisterType<IdentityUnitOfWorkEF>().As<IIdentityUnitOfWork>(); // InstancePerDependency();
+            //ContainerBuilder.RegisterGeneric(typeof(IdentityGenericRepositoryEF<>)).As(typeof(IIdentityGenericRepository<>)); // InstancePerDependency();
         }
     }
 }

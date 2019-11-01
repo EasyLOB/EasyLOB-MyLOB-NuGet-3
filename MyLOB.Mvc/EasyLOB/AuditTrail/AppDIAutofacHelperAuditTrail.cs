@@ -9,23 +9,23 @@ namespace EasyLOB
     {
         public static void SetupAuditTrail()
         {
-            //ContainerBuilder.RegisterType<AuditTrailManagerMock>().As<IAuditTrailManager>().SingleInstance();
-            ContainerBuilder.RegisterType<AuditTrailManager>().As<IAuditTrailManager>().SingleInstance();
+            //ContainerBuilder.RegisterType<AuditTrailManagerMock>().As<IAuditTrailManager>(); // InstancePerDependency();
+            ContainerBuilder.RegisterType<AuditTrailManager>().As<IAuditTrailManager>(); // InstancePerDependency();
 
-            ContainerBuilder.RegisterGeneric(typeof(AuditTrailGenericApplication<>)).As(typeof(IAuditTrailGenericApplication<>)).SingleInstance();
-            ContainerBuilder.RegisterGeneric(typeof(AuditTrailGenericApplicationDTO<,>)).As(typeof(IAuditTrailGenericApplicationDTO<,>)).SingleInstance();
+            ContainerBuilder.RegisterGeneric(typeof(AuditTrailGenericApplication<>)).As(typeof(IAuditTrailGenericApplication<>)); // InstancePerDependency();
+            ContainerBuilder.RegisterGeneric(typeof(AuditTrailGenericApplicationDTO<,>)).As(typeof(IAuditTrailGenericApplicationDTO<,>)); // InstancePerDependency();
 
             // Entity Framework
-            ContainerBuilder.RegisterType<AuditTrailUnitOfWorkEF>().As<IAuditTrailUnitOfWork>().SingleInstance();
-            ContainerBuilder.RegisterGeneric(typeof(AuditTrailGenericRepositoryEF<>)).As(typeof(IAuditTrailGenericRepository<>)).SingleInstance();
+            ContainerBuilder.RegisterType<AuditTrailUnitOfWorkEF>().As<IAuditTrailUnitOfWork>(); // InstancePerDependency();
+            ContainerBuilder.RegisterGeneric(typeof(AuditTrailGenericRepositoryEF<>)).As(typeof(IAuditTrailGenericRepository<>)); // InstancePerDependency();
 
             // LINQ to DB
-            //ContainerBuilder.RegisterType<AuditTrailUnitOfWorkLINQ2DB>().As<IAuditTrailUnitOfWork>().SingleInstance();
-            //ContainerBuilder.RegisterGeneric(typeof(AuditTrailGenericRepositoryLINQ2DB<>)).As(typeof(IAuditTrailGenericRepository<>)).SingleInstance();
+            //ContainerBuilder.RegisterType<AuditTrailUnitOfWorkLINQ2DB>().As<IAuditTrailUnitOfWork>(); // InstancePerDependency();
+            //ContainerBuilder.RegisterGeneric(typeof(AuditTrailGenericRepositoryLINQ2DB<>)).As(typeof(IAuditTrailGenericRepository<>)); // InstancePerDependency();
 
             // NHibernate
-            //ContainerBuilder.RegisterType<AuditTrailUnitOfWorkEF>().As<IAuditTrailUnitOfWork>().SingleInstance();
-            //ContainerBuilder.RegisterGeneric(typeof(AuditTrailGenericRepositoryEF<>)).As(typeof(IAuditTrailGenericRepository<>)).SingleInstance();
+            //ContainerBuilder.RegisterType<AuditTrailUnitOfWorkEF>().As<IAuditTrailUnitOfWork>(); // InstancePerDependency();
+            //ContainerBuilder.RegisterGeneric(typeof(AuditTrailGenericRepositoryEF<>)).As(typeof(IAuditTrailGenericRepository<>)); // InstancePerDependency();
         }
     }
 }

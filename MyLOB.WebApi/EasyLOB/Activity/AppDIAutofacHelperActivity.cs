@@ -10,23 +10,23 @@ namespace EasyLOB
     {
         public static void SetupActivity()
         {
-            ContainerBuilder.RegisterType<AuthorizationManagerMock>().As<IAuthorizationManager>().SingleInstance();
-            //ContainerBuilder.RegisterType<AuthorizationManager>().As<IAuthorizationManager>().SingleInstance();
+            ContainerBuilder.RegisterType<AuthorizationManagerMock>().As<IAuthorizationManager>(); // InstancePerDependency();
+            //ContainerBuilder.RegisterType<AuthorizationManager>().As<IAuthorizationManager>(); // InstancePerDependency();
 
-            ContainerBuilder.RegisterGeneric(typeof(ActivityGenericApplication<>)).As(typeof(IActivityGenericApplication<>)).SingleInstance();
-            ContainerBuilder.RegisterGeneric(typeof(ActivityGenericApplicationDTO<,>)).As(typeof(IActivityGenericApplicationDTO<,>)).SingleInstance();
+            ContainerBuilder.RegisterGeneric(typeof(ActivityGenericApplication<>)).As(typeof(IActivityGenericApplication<>)); // InstancePerDependency();
+            ContainerBuilder.RegisterGeneric(typeof(ActivityGenericApplicationDTO<,>)).As(typeof(IActivityGenericApplicationDTO<,>)); // InstancePerDependency();
 
             // Entity Framework
-            ContainerBuilder.RegisterType<ActivityUnitOfWorkEF>().As<IActivityUnitOfWork>().SingleInstance();
-            ContainerBuilder.RegisterGeneric(typeof(ActivityGenericRepositoryEF<>)).As(typeof(IActivityGenericRepository<>)).SingleInstance();
+            ContainerBuilder.RegisterType<ActivityUnitOfWorkEF>().As<IActivityUnitOfWork>(); // InstancePerDependency();
+            ContainerBuilder.RegisterGeneric(typeof(ActivityGenericRepositoryEF<>)).As(typeof(IActivityGenericRepository<>)); // InstancePerDependency();
 
             // LINQ to DB
-            //ContainerBuilder.RegisterType<ActivityUnitOfWorkLINQ2DB>().As<IActivityUnitOfWork>().SingleInstance();
-            //ContainerBuilder.RegisterGeneric(typeof(ActivityGenericRepositoryLINQ2DB<>)).As(typeof(IActivityGenericRepository<>)).SingleInstance();
+            //ContainerBuilder.RegisterType<ActivityUnitOfWorkLINQ2DB>().As<IActivityUnitOfWork>(); // InstancePerDependency();
+            //ContainerBuilder.RegisterGeneric(typeof(ActivityGenericRepositoryLINQ2DB<>)).As(typeof(IActivityGenericRepository<>)); // InstancePerDependency();
 
             // NHibernate
-            //ContainerBuilder.RegisterType<ActivityUnitOfWorkEF>().As<IActivityUnitOfWork>().SingleInstance();
-            //ContainerBuilder.RegisterGeneric(typeof(ActivityGenericRepositoryEF<>)).As(typeof(IActivityGenericRepository<>)).SingleInstance();
+            //ContainerBuilder.RegisterType<ActivityUnitOfWorkEF>().As<IActivityUnitOfWork>(); // InstancePerDependency();
+            //ContainerBuilder.RegisterGeneric(typeof(ActivityGenericRepositoryEF<>)).As(typeof(IActivityGenericRepository<>)); // InstancePerDependency();
         }
     }
 }
