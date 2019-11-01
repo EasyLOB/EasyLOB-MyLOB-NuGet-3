@@ -1,14 +1,15 @@
+using Autofac;
 using MyLOB;
 using MyLOB.Application;
 using MyLOB.Persistence;
-using Unity;
 
 namespace EasyLOB
 {
-    public static partial class AppDIUnityHelper
+    public static partial class AppDIAutofacHelper
     {
         public static void SetupMyLOB() // !!!
         {
+            /*
             Container.RegisterType(typeof(IMyLOBApplication), typeof(MyLOBApplication), AppLifetimeManager);
 
             Container.RegisterType(typeof(IMyLOBGenericApplication<>), typeof(MyLOBGenericApplication<>), AppLifetimeManager);
@@ -25,6 +26,7 @@ namespace EasyLOB
             // NHibernate
             //Container.RegisterType(typeof(IMyLOBUnitOfWork), typeof(MyLOBUnitOfWorkNH), AppLifetimeManager);
             //Container.RegisterType(typeof(IMyLOBGenericRepository<>), typeof(MyLOBGenericRepositoryNH<>), AppLifetimeManager);
+            */
         }
     }
 }

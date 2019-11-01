@@ -4,7 +4,6 @@ using EasyLOB.AuditTrail.Data;
 using EasyLOB.Data;
 using EasyLOB.Identity.Data;
 using MyLOB.Data;
-using System.Reflection;
 
 namespace EasyLOB
 {
@@ -39,9 +38,6 @@ namespace EasyLOB
 
         public static void Setup()
         {
-            // DI
-            AppDIUnityHelper.SetupMyLOB(); // !!!
-
             // AutoMapper
             SetupMappers();
 
@@ -61,18 +57,6 @@ namespace EasyLOB
                 cfg.AddProfile<IdentityDataAutoMapper>();
                 // MyLOB
                 cfg.AddProfile<MyLOBDataAutoMapper>(); // !!!
-                // Web API
-                /*
-                // ZViewModel <-> ZDTOModel
-                // Activity
-                cfg.AddProfile<ActivityViewAutoMapper>();
-                // Audit Trail
-                cfg.AddProfile<AuditTrailViewAutoMapper>();
-                // Identity
-                cfg.AddProfile<IdentityViewAutoMapper>();
-                // MyLOB
-                cfg.AddProfile<MyLOBViewAutoMapper>(); // !!!
-                */
             });
         }
 
@@ -87,19 +71,6 @@ namespace EasyLOB
             DataHelper.SetupDataProfile("EasyLOB.Identity.Data");
             // MyLOB
             DataHelper.SetupDataProfile("MyLOB.Data"); // !!!
-            // Web API
-            /*
-            // ZViewModel
-            string viewAssemblyName = Assembly.GetExecutingAssembly().GetName().Name;
-            // Activity
-            DataHelper.SetupViewProfile("EasyLOB.Activity.Data", viewAssemblyName);
-            // Audit Trail
-            DataHelper.SetupViewProfile("EasyLOB.AuditTrail.Data", viewAssemblyName);
-            // Identity
-            DataHelper.SetupViewProfile("EasyLOB.Identity.Data", viewAssemblyName);
-            // MyLOB
-            DataHelper.SetupViewProfile("MyLOB.Data", viewAssemblyName); // !!!
-            */
         }
 
         #endregion Methods
