@@ -9,7 +9,7 @@ namespace MyLOB.Persistence
     {
         #region Methods
 
-        public MyLOBGenericRepositoryEF(IUnitOfWork unitOfWork)
+        public MyLOBGenericRepositoryEF(IMyLOBUnitOfWork unitOfWork)
             : base(unitOfWork)
         {
             Context = (unitOfWork as MyLOBUnitOfWorkEF).Context;
