@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using Autofac.Integration.Mvc;
 using Autofac.Integration.WebApi;
+using AutoMapper;
 using EasyLOB.Environment;
 using System.Reflection;
 using System.Web.Http;
@@ -41,27 +42,32 @@ namespace EasyLOB
             SetupIdentity();
             SetupLog();
 
-            SetupMyLOB(); // !!!
+            SetupApplication(); // !!!
 
-            //ContainerBuilder.RegisterType<EnvironmentManagerDesktop>().As<IEnvironmentManager>(); // InstancePerDependency();
-            ContainerBuilder.RegisterType<EnvironmentManagerWeb>().As<IEnvironmentManager>(); // InstancePerDependency();
+            //ContainerBuilder.RegisterType<EnvironmentManagerDesktop>().As<IEnvironmentManager>();
+            ContainerBuilder.RegisterType<EnvironmentManagerWeb>().As<IEnvironmentManager>();
 
             ContainerBuilder.RegisterModule(new AutofacWebTypesModule());
-
+            // MVC
             ContainerBuilder.RegisterControllers(Assembly.GetExecutingAssembly());
+            // Web API
             ContainerBuilder.RegisterApiControllers(Assembly.GetExecutingAssembly());
 
             _container = _containerBuilder.Build();
 
+            IMapper mapper = AppHelper.SetupMappers();
+            AppHelper.SetupProfiles();
+
+            DIHelper.Setup(new DIManagerAutofac(Container),
+                Container.Resolve<IEnvironmentManager>(),
+                Container.Resolve<ILogManager>(),
+                Container.Resolve<IMailManager>(),
+                mapper);
+
             // MVC
             DependencyResolver.SetResolver(new AutofacDependencyResolver(Container));
-
             // Web API
             GlobalConfiguration.Configuration.DependencyResolver = new AutofacWebApiDependencyResolver(Container);
-
-            ManagerHelper.Setup(new DIManagerAutofac(Container),
-                Container.Resolve<IEnvironmentManager>(),
-                Container.Resolve<ILogManager>());
         }
 
         public static T Resolve<T>()

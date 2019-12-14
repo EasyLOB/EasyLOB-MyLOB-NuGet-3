@@ -1,7 +1,6 @@
 ﻿using EasyLOB;
-using EasyLOB.Data;
 
-namespace MyLOB.Application
+namespace MyLOB
 {
     public interface IMyLOBGenericApplicationDTO<TEntityDTO, TEntity>
         : IGenericApplicationDTO<TEntityDTO, TEntity>

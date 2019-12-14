@@ -19,8 +19,8 @@ namespace MyLOB.Data
                     string dto = type.FullName + "DTO";
                     Type typeDTO = dataAssembly.GetType(dto);
 
-                    CreateMap(type, typeDTO);
-                    CreateMap(typeDTO, type);
+                    CreateMap(type, typeDTO, MemberList.None);
+                    CreateMap(typeDTO, type, MemberList.None);
                 }
             }
         }

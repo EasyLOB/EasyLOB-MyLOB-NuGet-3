@@ -1,6 +1,6 @@
 ﻿using EasyLOB;
 
-namespace MyLOB.Persistence
+namespace MyLOB
 {
     public interface IMyLOBUnitOfWorkDTO : IUnitOfWorkDTO
     {

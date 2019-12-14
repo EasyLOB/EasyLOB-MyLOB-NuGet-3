@@ -1,7 +1,6 @@
 ﻿using EasyLOB;
-using EasyLOB.Data;
 
-namespace MyLOB.Persistence
+namespace MyLOB
 {
     public interface IMyLOBGenericRepositoryDTO<TEntityDTO, TEntity> : IGenericRepositoryDTO<TEntityDTO, TEntity>
         where TEntityDTO : class, IZDTOBase<TEntityDTO, TEntity>

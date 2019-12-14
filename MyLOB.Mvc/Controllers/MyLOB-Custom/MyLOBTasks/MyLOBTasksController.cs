@@ -1,5 +1,6 @@
 ﻿using EasyLOB;
 using EasyLOB.Mvc;
+using MyLOB.Persistence;
 
 namespace MyLOB.Mvc
 {
@@ -7,15 +8,15 @@ namespace MyLOB.Mvc
     {
         #region Properties
 
-        protected IMyLOBApplication Application { get; }
+        protected IMyLOBUnitOfWork UnitOfWork { get; }
 
         #endregion Properties
 
         #region Methods
 
-        public MyLOBTasksController(IMyLOBApplication application)
+        public MyLOBTasksController(IMyLOBUnitOfWork unitOfWork)
         {
-            Application = application;
+            UnitOfWork = unitOfWork;
         }
 
         protected override bool IsValid(ZOperationResult operationResult, IZValidatableObject entity)

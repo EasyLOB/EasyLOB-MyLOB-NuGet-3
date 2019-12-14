@@ -37,18 +37,9 @@ namespace EasyLOB
 
         #region Methods
 
-        public static void Setup()
+        public static IMapper SetupMappers()
         {
-            // AutoMapper
-            SetupMappers();
-
-            // Profile
-            SetupProfiles();
-        }
-
-        public static void SetupMappers()
-        {
-            Mapper.Initialize(cfg => {
+            MapperConfiguration config = new MapperConfiguration(cfg => {
                 // ZDataModel <-> ZDTOModel
                 // Activity
                 cfg.AddProfile<ActivityDataAutoMapper>();
@@ -56,7 +47,7 @@ namespace EasyLOB
                 cfg.AddProfile<AuditTrailDataAutoMapper>();
                 // Identity
                 cfg.AddProfile<IdentityDataAutoMapper>();
-                // MyLOB
+                // Application
                 cfg.AddProfile<MyLOBDataAutoMapper>(); // !!!
 
                 // ZViewModel <-> ZDTOModel
@@ -66,9 +57,14 @@ namespace EasyLOB
                 cfg.AddProfile<AuditTrailViewAutoMapper>();
                 // Identity
                 cfg.AddProfile<IdentityViewAutoMapper>();
-                // MyLOB
+                // Application
                 cfg.AddProfile<MyLOBViewAutoMapper>(); // !!!
             });
+
+            config.CompileMappings();
+            config.AssertConfigurationIsValid();
+
+            return config.CreateMapper();
         }
 
         public static void SetupProfiles()
@@ -80,7 +76,7 @@ namespace EasyLOB
             DataHelper.SetupDataProfile("EasyLOB.AuditTrail.Data");
             // Identity
             DataHelper.SetupDataProfile("EasyLOB.Identity.Data");
-            // MyLOB
+            // Application
             DataHelper.SetupDataProfile("MyLOB.Data"); // !!!
 
             // ZViewModel
@@ -91,7 +87,7 @@ namespace EasyLOB
             DataHelper.SetupViewProfile("EasyLOB.AuditTrail.Data", viewAssemblyName);
             // Identity
             DataHelper.SetupViewProfile("EasyLOB.Identity.Data", viewAssemblyName);
-            // MyLOB
+            // Application
             DataHelper.SetupViewProfile("MyLOB.Data", viewAssemblyName); // !!!
         }
 

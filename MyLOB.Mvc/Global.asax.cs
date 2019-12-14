@@ -28,7 +28,6 @@ namespace MyLOB.Mvc
 
             // Autofac
             AppDIAutofacHelper.Setup(new ContainerBuilder());
-            AppHelper.Setup();
 
             AreaRegistration.RegisterAllAreas();
 

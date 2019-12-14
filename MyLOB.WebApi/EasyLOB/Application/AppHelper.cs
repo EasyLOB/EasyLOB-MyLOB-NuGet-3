@@ -36,18 +36,9 @@ namespace EasyLOB
 
         #region Methods
 
-        public static void Setup()
+        public static IMapper SetupMappers()
         {
-            // AutoMapper
-            SetupMappers();
-
-            // Profile
-            SetupProfiles();
-        }
-
-        public static void SetupMappers()
-        {
-            Mapper.Initialize(cfg => {
+            MapperConfiguration config = new MapperConfiguration(cfg => {
                 // ZDataModel <-> ZDTOModel
                 // Activity
                 cfg.AddProfile<ActivityDataAutoMapper>();
@@ -55,9 +46,14 @@ namespace EasyLOB
                 cfg.AddProfile<AuditTrailDataAutoMapper>();
                 // Identity
                 cfg.AddProfile<IdentityDataAutoMapper>();
-                // MyLOB
+                // Application
                 cfg.AddProfile<MyLOBDataAutoMapper>(); // !!!
             });
+
+            config.CompileMappings();
+            config.AssertConfigurationIsValid();
+
+            return config.CreateMapper();
         }
 
         public static void SetupProfiles()
@@ -69,7 +65,7 @@ namespace EasyLOB
             DataHelper.SetupDataProfile("EasyLOB.AuditTrail.Data");
             // Identity
             DataHelper.SetupDataProfile("EasyLOB.Identity.Data");
-            // MyLOB
+            // Application
             DataHelper.SetupDataProfile("MyLOB.Data"); // !!!
         }
 

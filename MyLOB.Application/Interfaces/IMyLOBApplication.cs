@@ -1,4 +1,4 @@
-﻿using EasyLOB;
+﻿using MyLOB.Persistence;
 using System;
 
 namespace MyLOB
@@ -7,7 +7,7 @@ namespace MyLOB
     {
         #region Properties
 
-        IDIManager DIManager { get; }
+        IMyLOBUnitOfWork UnitOfWork { get; }
 
         #endregion Properties
     }

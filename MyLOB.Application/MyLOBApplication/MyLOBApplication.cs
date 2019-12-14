@@ -1,6 +1,4 @@
-﻿using EasyLOB;
-using MyLOB.Persistence;
-using System;
+﻿using System;
 
 namespace MyLOB.Application
 {
@@ -10,16 +8,13 @@ namespace MyLOB.Application
 
         public IMyLOBUnitOfWork UnitOfWork { get; }
 
-        public IDIManager DIManager { get; }
-
         #endregion Properties
 
         #region Methods
 
-        public MyLOBApplication(IMyLOBUnitOfWork unitOfWork, IDIManager diManager)
+        public MyLOBApplication(IMyLOBUnitOfWork unitOfWork)
         {
             UnitOfWork = unitOfWork;
-            DIManager = diManager;
         }
 
         #endregion Methods

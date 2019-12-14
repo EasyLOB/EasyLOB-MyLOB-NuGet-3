@@ -22,7 +22,6 @@ namespace MyLOB.WebApi
 
             // Autofac
             AppDIAutofacHelper.Setup(new ContainerBuilder());
-            AppHelper.Setup();
 
             AreaRegistration.RegisterAllAreas();
 

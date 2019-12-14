@@ -2,7 +2,6 @@
 using EasyLOB.Identity;
 using EasyLOB.Identity.Application;
 using EasyLOB.Identity.Persistence;
-using EasyLOB.Security;
 
 namespace EasyLOB
 {
@@ -10,19 +9,27 @@ namespace EasyLOB
     {
         public static void SetupIdentity()
         {
-            ContainerBuilder.RegisterType<AuthenticationManagerMock>().As<IAuthenticationManager>(); // InstancePerDependency();
-            //ContainerBuilder.RegisterType<AuthenticationManager>().As<IAuthenticationManager>();
+            //ContainerBuilder.RegisterType<AuthenticationManagerMock>().As<IAuthenticationManager>()
+            //    .InstancePerRequest();
+            ContainerBuilder.RegisterType<AuthenticationManager>().As<IAuthenticationManager>().InstancePerDependency()
+                .InstancePerRequest();
 
-            ContainerBuilder.RegisterGeneric(typeof(IdentityGenericApplication<>)).As(typeof(IIdentityGenericApplication<>)); // InstancePerDependency();
-            ContainerBuilder.RegisterGeneric(typeof(IdentityGenericApplicationDTO<,>)).As(typeof(IIdentityGenericApplicationDTO<,>)); // InstancePerDependency();
+            ContainerBuilder.RegisterGeneric(typeof(IdentityGenericApplication<>)).As(typeof(IIdentityGenericApplication<>))
+                .InstancePerRequest();
+            ContainerBuilder.RegisterGeneric(typeof(IdentityGenericApplicationDTO<,>)).As(typeof(IIdentityGenericApplicationDTO<,>))
+                .InstancePerRequest();
 
             // Entity Framework
-            ContainerBuilder.RegisterType<IdentityUnitOfWorkEF>().As<IIdentityUnitOfWork>(); // InstancePerDependency();
-            ContainerBuilder.RegisterGeneric(typeof(IdentityGenericRepositoryEF<>)).As(typeof(IIdentityGenericRepository<>)); // InstancePerDependency();
+            ContainerBuilder.RegisterType<IdentityUnitOfWorkEF>().As<IIdentityUnitOfWork>()
+                .InstancePerRequest();
+            ContainerBuilder.RegisterGeneric(typeof(IdentityGenericRepositoryEF<>)).As(typeof(IIdentityGenericRepository<>))
+                .InstancePerRequest();
 
             // NHibernate
-            //ContainerBuilder.RegisterType<IdentityUnitOfWorkEF>().As<IIdentityUnitOfWork>(); // InstancePerDependency();
-            //ContainerBuilder.RegisterGeneric(typeof(IdentityGenericRepositoryEF<>)).As(typeof(IIdentityGenericRepository<>)); // InstancePerDependency();
+            //ContainerBuilder.RegisterType<IdentityUnitOfWorkEF>().As<IIdentityUnitOfWork>()
+            //    .InstancePerRequest();
+            //ContainerBuilder.RegisterGeneric(typeof(IdentityGenericRepositoryEF<>)).As(typeof(IIdentityGenericRepository<>))
+            //    .InstancePerRequest();
         }
     }
 }

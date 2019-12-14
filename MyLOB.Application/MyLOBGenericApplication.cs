@@ -1,7 +1,5 @@
-﻿using MyLOB.Persistence;
-using EasyLOB;
+﻿using EasyLOB;
 using EasyLOB.Application;
-using EasyLOB.Data;
 
 namespace MyLOB.Application
 {
@@ -11,8 +9,10 @@ namespace MyLOB.Application
     {
         #region Methods
 
-        public MyLOBGenericApplication(IMyLOBUnitOfWork unitOfWork)
-            : base(unitOfWork)            
+        public MyLOBGenericApplication(IMyLOBUnitOfWork unitOfWork,
+            IAuditTrailManager auditTrailManager,
+            IAuthorizationManager authorizationManager)
+            : base(unitOfWork, auditTrailManager, authorizationManager)
         {
         }
 

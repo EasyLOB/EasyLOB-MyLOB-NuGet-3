@@ -21,12 +21,12 @@ namespace MyLOB
         {
             get
             {
-                List<MyLOBTenant> tenants = (List<MyLOBTenant>)ManagerHelper.EnvironmentManager.SessionRead(SessionName);
+                List<MyLOBTenant> tenants = (List<MyLOBTenant>)DIHelper.EnvironmentManager.SessionRead(SessionName);
                 if (tenants == null || tenants.Count == 0)
                 {
                     try
                     {
-                        string filePath = Path.Combine(ManagerHelper.EnvironmentManager.ApplicationPath(ConfigurationHelper.AppSettings<string>("EasyLOB.Directory.Configuration")),
+                        string filePath = Path.Combine(DIHelper.EnvironmentManager.ApplicationPath(ConfigurationHelper.AppSettings<string>("EasyLOB.Directory.Configuration")),
                             "JSON/MyLOBMultiTenant.json");
                         string json = File.ReadAllText(filePath);
                         tenants = JsonConvert.DeserializeObject<List<MyLOBTenant>>(json);
@@ -34,7 +34,7 @@ namespace MyLOB
                     catch { }
                     tenants = tenants ?? new List<MyLOBTenant>();
 
-                    ManagerHelper.EnvironmentManager.SessionWrite(SessionName, tenants);
+                    DIHelper.EnvironmentManager.SessionWrite(SessionName, tenants);
                 }
 
                 return tenants;
