@@ -1,6 +1,5 @@
 ﻿using EasyLOB;
 using EasyLOB.Mvc;
-using MyLOB.Persistence;
 
 namespace MyLOB.Mvc
 {
@@ -14,7 +13,9 @@ namespace MyLOB.Mvc
 
         #region Methods
 
-        public MyLOBTasksController(IMyLOBUnitOfWork unitOfWork)
+        public MyLOBTasksController(IMyLOBUnitOfWork unitOfWork,
+            IAuthorizationManager authorizationManager)
+            : base (authorizationManager)
         {
             UnitOfWork = unitOfWork;
         }
