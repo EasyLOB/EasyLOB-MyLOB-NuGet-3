@@ -7,20 +7,20 @@ namespace EasyLOB
 {
     public static partial class AppDIAutofacHelper
     {
-        public static void SetupExtensions()
+        public static void SetupExtensions(ContainerBuilder containerBuilder)
         {
-            //ContainerBuilder.RegisterType<EdmManagerMock>().As<IEdmManager>()
-            ContainerBuilder.RegisterType<EdmManagerFileSystem>().As<IEdmManager>()
-            //ContainerBuilder.RegisterType<EdmManagerFTP>().As<IEdmManager>()
+            //containerBuilder.RegisterType<EdmManagerMock>().As<IEdmManager>()
+            containerBuilder.RegisterType<EdmManagerFileSystem>().As<IEdmManager>()
+            //containerBuilder.RegisterType<EdmManagerFTP>().As<IEdmManager>()
                 .InstancePerRequest();
 
-            //ContainerBuilder.RegisterType<IniManagerMock>().As<IIniManager>()
-            ContainerBuilder.RegisterType<IniManager>().As<IIniManager>()
+            //containerBuilder.RegisterType<IniManagerMock>().As<IIniManager>()
+            containerBuilder.RegisterType<IniManager>().As<IIniManager>()
                 .InstancePerRequest();
 
             // DIHelper
-            //ContainerBuilder.RegisterType<MailManagerMock>().As<IMailManager>(0);
-            ContainerBuilder.RegisterType<MailManager>().As<IMailManager>();
+            //containerBuilder.RegisterType<MailManagerMock>().As<IMailManager>(0);
+            containerBuilder.RegisterType<MailManager>().As<IMailManager>();
         }
     }
 }
