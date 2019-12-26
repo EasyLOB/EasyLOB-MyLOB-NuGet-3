@@ -207,6 +207,9 @@
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="SharpConfig, Version=3.2.8.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\sharpconfig.3.2.8\lib\net20\SharpConfig.dll</HintPath>
+    </Reference>
     <Reference Include="Syncfusion.Chart.WPF, Version=17.1450.0.52, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <HintPath>..\packages\Syncfusion.AspNet.Mvc5.ReportViewer.17.1.0.52\lib\net45\Syncfusion.Chart.WPF.dll</HintPath>
     </Reference>
@@ -1077,6 +1080,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\easylob\easylob.dictionary.js" />
     <Content Include="Scripts\easylob\easylob.js" />
+    <Content Include="Scripts\easylob\easylob.txt" />
     <Content Include="Scripts\easylob\ej\i18n\ej.culture.pt-BR.js" />
     <Content Include="Scripts\easylob\ej\i18n\ej.culture.pt-BR.min.js" />
     <Content Include="Scripts\easylob\ej\jsrender.js" />
@@ -1244,7 +1248,6 @@
     <Content Include="Scripts\ej\web\ej.uploadbox.min.js" />
     <Content Include="Scripts\ej\web\ej.waitingpopup.min.js" />
     <Content Include="Scripts\ej\web\ej.web.all.min.js" />
-    <Content Include="Scripts\JavaScript.js" />
     <Content Include="Scripts\globalize\cultures\globalize.culture.af-ZA.js" />
     <Content Include="Scripts\globalize\cultures\globalize.culture.af.js" />
     <Content Include="Scripts\globalize\cultures\globalize.culture.am-ET.js" />
