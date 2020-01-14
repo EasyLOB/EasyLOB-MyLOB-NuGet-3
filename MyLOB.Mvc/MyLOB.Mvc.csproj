@@ -136,7 +136,7 @@
       <HintPath>..\packages\EasyLOB.3.1.0\lib\net46\EasyLOB.Library.dll</HintPath>
     </Reference>
     <Reference Include="EasyLOB.Log, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\</HintPath>
+      <HintPath>..\packages\EasyLOB.3.1.0\lib\net46\EasyLOB.Log.dll</HintPath>
     </Reference>
     <Reference Include="EasyLOB.LogNLog, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\EasyLOB.LogNLog.3.1.0\lib\net46\EasyLOB.LogNLog.dll</HintPath>
