@@ -11,32 +11,32 @@ namespace EasyLOB
         public static void SetupActivity(ContainerBuilder containerBuilder)
         {
             //containerBuilder.RegisterType<AuthorizationManagerMock>().As<IAuthorizationManager>();
-            //    .InstancePerRequest();
+            //    .InstancePerLifetimeScope();
             containerBuilder.RegisterType<AuthorizationManager>().As<IAuthorizationManager>()
-                .InstancePerRequest();
+                .InstancePerLifetimeScope();
 
             containerBuilder.RegisterGeneric(typeof(ActivityGenericApplication<>)).As(typeof(IActivityGenericApplication<>))
-                .InstancePerRequest();
+                .InstancePerLifetimeScope();
             containerBuilder.RegisterGeneric(typeof(ActivityGenericApplicationDTO<,>)).As(typeof(IActivityGenericApplicationDTO<,>))
-                .InstancePerRequest();
+                .InstancePerLifetimeScope();
 
             // Entity Framework
             containerBuilder.RegisterType<ActivityUnitOfWorkEF>().As<IActivityUnitOfWork>()
-                .InstancePerRequest();
+                .InstancePerLifetimeScope();
             containerBuilder.RegisterGeneric(typeof(ActivityGenericRepositoryEF<>)).As(typeof(IActivityGenericRepository<>))
-                .InstancePerRequest();
+                .InstancePerLifetimeScope();
 
             // LINQ to DB
             //containerBuilder.RegisterType<ActivityUnitOfWorkLINQ2DB>().As<IActivityUnitOfWork>()
-            //    .InstancePerRequest();
+            //    .InstancePerLifetimeScope();
             //containerBuilder.RegisterGeneric(typeof(ActivityGenericRepositoryLINQ2DB<>)).As(typeof(IActivityGenericRepository<>))
-            //    .InstancePerRequest();
+            //    .InstancePerLifetimeScope();
 
             // NHibernate
             //containerBuilder.RegisterType<ActivityUnitOfWorkEF>().As<IActivityUnitOfWork>()
-            //    .InstancePerRequest();
+            //    .InstancePerLifetimeScope();
             //containerBuilder.RegisterGeneric(typeof(ActivityGenericRepositoryEF<>)).As(typeof(IActivityGenericRepository<>))
-            //    .InstancePerRequest();
+            //    .InstancePerLifetimeScope();
         }
     }
 }

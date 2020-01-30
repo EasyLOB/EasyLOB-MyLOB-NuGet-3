@@ -11,30 +11,30 @@ namespace EasyLOB
         {
             /*
             containerBuilder.RegisterType<MyLOBApplication>().As<IMyLOBApplication>()
-                .InstancePerRequest();
+                .InstancePerLifetimeScope();
 
             containerBuilder.RegisterGeneric(typeof(MyLOBGenericApplication<>)).As(typeof(IMyLOBGenericApplication<>))
-                .InstancePerRequest();
+                .InstancePerLifetimeScope();
             containerBuilder.RegisterGeneric(typeof(MyLOBGenericApplicationDTO<,>)).As(typeof(IMyLOBGenericApplicationDTO<,>))
-                .InstancePerRequest();
+                .InstancePerLifetimeScope();
 
             // Entity Framework
             containerBuilder.RegisterType<MyLOBUnitOfWorkEF>().As<IMyLOBUnitOfWork>()
-                .InstancePerRequest();
+                .InstancePerLifetimeScope();
             containerBuilder.RegisterGeneric(typeof(MyLOBGenericRepositoryEF<>)).As(typeof(IMyLOBGenericRepository<>))
-                .InstancePerRequest();
+                .InstancePerLifetimeScope();
 
             // LINQ to DB
             //containerBuilder.RegisterType<MyLOBUnitOfWorkLINQ2DB>().As<IMyLOBUnitOfWork>()
-            //    .InstancePerRequest();
+            //    .InstancePerLifetimeScope();
             //containerBuilder.RegisterGeneric(typeof(MyLOBGenericRepositoryLINQ2DB<>)).As(typeof(IMyLOBGenericRepository<>))
-            //    .InstancePerRequest();
+            //    .InstancePerLifetimeScope();
 
             // NHibernate
             //containerBuilder.RegisterType<MyLOBUnitOfWorkEF>().As<IMyLOBUnitOfWork>()
-            //    .InstancePerRequest();
+            //    .InstancePerLifetimeScope();
             //containerBuilder.RegisterGeneric(typeof(MyLOBGenericRepositoryEF<>)).As(typeof(IMyLOBGenericRepository<>))
-            //    .InstancePerRequest();
+            //    .InstancePerLifetimeScope();
             */
         }
     }

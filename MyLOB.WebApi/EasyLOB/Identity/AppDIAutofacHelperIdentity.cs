@@ -10,26 +10,26 @@ namespace EasyLOB
         public static void SetupIdentity(ContainerBuilder containerBuilder)
         {
             //containerBuilder.RegisterType<AuthenticationManagerMock>().As<IAuthenticationManager>()
-            //    .InstancePerRequest();
+            //    .InstancePerLifetimeScope();
             containerBuilder.RegisterType<AuthenticationManager>().As<IAuthenticationManager>().InstancePerDependency()
-                .InstancePerRequest();
+                .InstancePerLifetimeScope();
 
             containerBuilder.RegisterGeneric(typeof(IdentityGenericApplication<>)).As(typeof(IIdentityGenericApplication<>))
-                .InstancePerRequest();
+                .InstancePerLifetimeScope();
             containerBuilder.RegisterGeneric(typeof(IdentityGenericApplicationDTO<,>)).As(typeof(IIdentityGenericApplicationDTO<,>))
-                .InstancePerRequest();
+                .InstancePerLifetimeScope();
 
             // Entity Framework
             containerBuilder.RegisterType<IdentityUnitOfWorkEF>().As<IIdentityUnitOfWork>()
-                .InstancePerRequest();
+                .InstancePerLifetimeScope();
             containerBuilder.RegisterGeneric(typeof(IdentityGenericRepositoryEF<>)).As(typeof(IIdentityGenericRepository<>))
-                .InstancePerRequest();
+                .InstancePerLifetimeScope();
 
             // NHibernate
             //containerBuilder.RegisterType<IdentityUnitOfWorkEF>().As<IIdentityUnitOfWork>()
-            //    .InstancePerRequest();
+            //    .InstancePerLifetimeScope();
             //containerBuilder.RegisterGeneric(typeof(IdentityGenericRepositoryEF<>)).As(typeof(IIdentityGenericRepository<>))
-            //    .InstancePerRequest();
+            //    .InstancePerLifetimeScope();
         }
     }
 }

@@ -10,32 +10,32 @@ namespace EasyLOB
         public static void SetupAuditTrail(ContainerBuilder containerBuilder)
         {
             //containerBuilder.RegisterType<AuditTrailManagerMock>().As<IAuditTrailManager>()
-            //    .InstancePerRequest();
+            //    .InstancePerLifetimeScope();
             containerBuilder.RegisterType<AuditTrailManager>().As<IAuditTrailManager>()
-                .InstancePerRequest();
+                .InstancePerLifetimeScope();
 
             containerBuilder.RegisterGeneric(typeof(AuditTrailGenericApplication<>)).As(typeof(IAuditTrailGenericApplication<>))
-                .InstancePerRequest();
+                .InstancePerLifetimeScope();
             containerBuilder.RegisterGeneric(typeof(AuditTrailGenericApplicationDTO<,>)).As(typeof(IAuditTrailGenericApplicationDTO<,>))
-                .InstancePerRequest();
+                .InstancePerLifetimeScope();
 
             // Entity Framework
             containerBuilder.RegisterType<AuditTrailUnitOfWorkEF>().As<IAuditTrailUnitOfWork>()
-                .InstancePerRequest();
+                .InstancePerLifetimeScope();
             containerBuilder.RegisterGeneric(typeof(AuditTrailGenericRepositoryEF<>)).As(typeof(IAuditTrailGenericRepository<>))
-                .InstancePerRequest();
+                .InstancePerLifetimeScope();
 
             // LINQ to DB
             //containerBuilder.RegisterType<AuditTrailUnitOfWorkLINQ2DB>().As<IAuditTrailUnitOfWork>()
-            //    .InstancePerRequest();
+            //    .InstancePerLifetimeScope();
             //containerBuilder.RegisterGeneric(typeof(AuditTrailGenericRepositoryLINQ2DB<>)).As(typeof(IAuditTrailGenericRepository<>))
-            //    .InstancePerRequest();
+            //    .InstancePerLifetimeScope();
 
             // NHibernate
             //containerBuilder.RegisterType<AuditTrailUnitOfWorkEF>().As<IAuditTrailUnitOfWork>()
-            //    .InstancePerRequest();
+            //    .InstancePerLifetimeScope();
             //containerBuilder.RegisterGeneric(typeof(AuditTrailGenericRepositoryEF<>)).As(typeof(IAuditTrailGenericRepository<>))
-            //    .InstancePerRequest();
+            //    .InstancePerLifetimeScope();
         }
     }
 }

@@ -8,7 +8,7 @@ namespace EasyLOB
         public static void SetupEasyLOB(ContainerBuilder containerBuilder)
         {
             containerBuilder.RegisterType<EasyLOBApplication>().As<IEasyLOBApplication>()
-                .InstancePerRequest();
+                .InstancePerLifetimeScope();
         }
     }
 }
